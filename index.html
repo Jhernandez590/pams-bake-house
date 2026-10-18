@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pam's Bake House</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+
+    <div class="nav-brand">
+      PAM'S BAKE HOUSE
+    </div>
+
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#story">Our Story</a>
+      <a href="#order">Order</a>
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+  <main class="hero">
+
+    <p class="small-title">WELCOME TO</p>
+
+    <h1>PAM'S<br>BAKE HOUSE</h1>
+
+    <p class="slogan">Eat Bread & Rest.</p>
+
+    <p class="description">
+      Homemade baked goods made with love,
+      meant to be shared, savored, and enjoyed.
+    </p>
+
+    <a href="#menu" class="hero-button">
+      VIEW OUR MENU
+    </a>
+
+  </main>
+
+
+  <!-- FRESH FROM THE BAKE HOUSE -->
+  <section class="fresh" id="menu">
+
+    <p class="section-label">FROM PAM'S KITCHEN</p>
+
+    <h2>Fresh From<br>the Bake House</h2>
+
+    <p class="fresh-text">
+      Thoughtfully baked, beautifully packaged,
+      and made for sharing around the table.
+    </p>
+
+
+    <div class="categories">
+
+      <div class="category">
+        <span>01</span>
+
+        <h3>Cookies</h3>
+
+        <p>
+          Soft, warm and baked with love.
+        </p>
+      </div>
+
+
+      <div class="category">
+        <span>02</span>
+
+        <h3>Sweet Breads</h3>
+
+        <p>
+          Comforting homemade loaves for every occasion.
+        </p>
+      </div>
+
+
+      <div class="category">
+        <span>03</span>
+
+        <h3>Cinnamon Rolls</h3>
+
+        <p>
+          Soft rolls finished with rich, creamy icing.
+        </p>
+      </div>
+
+
+      <div class="category">
+        <span>04</span>
+
+        <h3>Brownies</h3>
+
+        <p>
+          Crispy top, gooey inside.
+        </p>
+      </div>
+
+    </div>
+
+
+    <a href="#full-menu" class="menu-button">
+      EXPLORE THE FULL MENU
+    </a>
+
+  </section>
+
+
+  <!-- OUR STORY -->
+  <section class="story" id="story">
+
+    <div class="story-content">
+
+      <p class="section-label-dark">
+        OUR PHILOSOPHY
+      </p>
+
+      <h2>
+        Eat Bread<br>& Rest.
+      </h2>
+
+      <p class="scripture">
+        1 Kings 19:3–8
+      </p>
+
+      <p class="story-text">
+        Sometimes the simplest things are the ones we need most:
+        something nourishing, a place to rest, and something made
+        with care.
+      </p>
+
+      <p class="story-text">
+        At Pam's Bake House, every batch is made with the hope
+        that it brings a little comfort, joy, and rest to your table.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FULL MENU -->
+  <section class="full-menu" id="full-menu">
+
+    <p class="section-label-dark">
+      THE BAKE HOUSE
+    </p>
+
+    <h2>Our Menu</h2>
+
+    <p class="menu-intro">
+      Something sweet, something comforting,
+      and something worth slowing down for.
+    </p>
+
+
+    <div class="menu-grid">
+
+      <article class="menu-card">
+
+        <p class="menu-number">01</p>
+
+        <h3>Cookies</h3>
+
+        <p>
+          Freshly baked cookies made for sharing,
+          gifting, or keeping all to yourself.
+        </p>
+
+      </article>
+
+
+      <article class="menu-card">
+
+        <p class="menu-number">02</p>
+
+        <h3>Brownies</h3>
+
+        <p>
+          Rich, comforting brownies baked
+          fresh in Pam's kitchen.
+        </p>
+
+      </article>
+
+
+      <article class="menu-card">
+
+        <p class="menu-number">03</p>
+
+        <h3>Cinnamon Rolls</h3>
+
+        <p>
+          Soft cinnamon rolls finished with
+          a generous layer of icing.
+        </p>
+
+      </article>
+
+
+      <article class="menu-card">
+
+        <p class="menu-number">04</p>
+
+        <h3>Sweet Breads</h3>
+
+        <p>
+          Homemade loaves baked for slow mornings,
+          gatherings, and everything between.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ORDER SECTION -->
+<section class="order-section" id="order">
+
+  <div class="order-heading">
+
+    <p class="order-label">
+      PLACE AN ORDER
+    </p>
+
+    <h2>
+      Something Good<br>Is Baking.
+    </h2>
+
+    <p>
+      Tell us what you're craving and when you need it.
+      We'll follow up to confirm your order.
+    </p>
+
+  </div>
+
+
+  <form
+    class="order-form"
+    action="https://formspree.io/f/maeqkyob"
+    method="POST"
+  >
+
+    <div class="form-group">
+
+        <label for="name">
+          YOUR NAME
+        </label>
+
+        <input
+  type="text"
+  id="name"
+  name="name"
+  placeholder="Your name"
+  required
+>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="email">
+          EMAIL
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@email.com"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="phone">
+          PHONE NUMBER
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="(555) 555-5555"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="item">
+          WHAT WOULD YOU LIKE?
+        </label>
+
+        <select id="item" name="item" required>
+
+          <option value="">
+            Choose an item
+          </option>
+
+          <option value="cookies">
+            Cookies
+          </option>
+
+          <option value="brownies">
+            Brownies
+          </option>
+
+          <option value="cinnamon-rolls">
+            Cinnamon Rolls
+          </option>
+
+          <option value="sweet-breads">
+            Sweet Breads
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="date">
+          WHEN DO YOU NEED IT?
+        </label>
+
+        <input
+          type="date"
+          id="date"
+          name="date"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group full-width">
+
+        <label for="details">
+          ORDER DETAILS
+        </label>
+
+        <textarea
+          id="details"
+          name="details"
+          rows="5"
+          placeholder="Quantity, flavors, special requests..."
+        ></textarea>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="order-button"
+      >
+        SEND ORDER REQUEST
+      </button>
+
+    </form>
+
+<div class="success-message" id="success-message">
+
+  <h3>Order Request Received!</h3>
+
+  <p>
+    Thank you! Pam will be in touch soon
+    to confirm your order.
+  </p>
+
+</div>
+  
+  </section>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
