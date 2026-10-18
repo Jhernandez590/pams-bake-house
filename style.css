@@ -29,13 +29,13 @@ body {
 }
 
 .hero-logo {
-  width: 220px;
-  max-width: 60%;
-  height: 160px;
+  width: 320px;
+  max-width: 70vw;
+  height: 230px;
 
   object-fit: contain;
 
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .small-title {
