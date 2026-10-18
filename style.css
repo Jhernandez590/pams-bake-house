@@ -1,0 +1,486 @@
+* html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f3ed;
+  color: #3b2a23;
+  font-family: Georgia, serif;
+}
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 40px 25px;
+}
+
+.small-title {
+  font-size: 12px;
+  letter-spacing: 5px;
+
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 55px;
+  font-weight: 400;
+
+  letter-spacing: 8px;
+  line-height: 1.15;
+
+  margin-bottom: 20px;
+}
+
+.slogan {
+  font-size: 27px;
+  font-style: italic;
+
+  margin-bottom: 25px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.7;
+
+  max-width: 450px;
+
+  margin-bottom: 35px;
+}
+
+button {
+  background-color: #3b2a23;
+  color: #ffffff;
+
+  border: none;
+
+  padding: 17px 30px;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+}
+.fresh {
+  background-color: #3b2a23;
+  color: #f7f3ed;
+
+  padding: 90px 25px;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.fresh h2 {
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.fresh-text {
+  max-width: 450px;
+  margin: 0 auto 60px;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.categories {
+  max-width: 900px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category {
+  border-top: 1px solid #8d776c;
+  padding: 30px 15px;
+}
+
+.category span {
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.category h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 18px 0 10px;
+}
+
+.category p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.order-section {
+  background-color: #3b2a23;
+  color: #f7f3ed;
+
+  padding: 110px 25px;
+}
+
+.order-heading {
+  max-width: 700px;
+  margin: 0 auto 65px;
+
+  text-align: center;
+}
+
+.order-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+
+  margin-bottom: 25px;
+}
+
+.order-heading h2 {
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 1.05;
+
+  margin-bottom: 25px;
+}
+
+.order-heading > p:last-child {
+  max-width: 500px;
+  margin: auto;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  opacity: 0.8;
+}
+
+.order-form {
+  max-width: 850px;
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 35px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  margin-bottom: 12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+  width: 100%;
+
+  background: transparent;
+
+  color: #f7f3ed;
+
+  border: none;
+  border-bottom: 1px solid #8d776c;
+
+  padding: 12px 0;
+
+  font-family: Georgia, serif;
+  font-size: 16px;
+
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #bcaea5;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.order-button {
+  grid-column: 1 / -1;
+
+  background-color: #f7f3ed;
+  color: #3b2a23;
+
+  padding: 18px 30px;
+
+  border: none;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+}
+
+.hero-button {
+  display: inline-block;
+
+  background-color: #3b2a23;
+  color: #ffffff;
+
+  padding: 17px 30px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #5a4338;
+  transform: translateY(-2px);
+}
+
+.success-message {
+  display: none;
+
+  max-width: 600px;
+  margin: 50px auto 0;
+
+  text-align: center;
+
+  border: 1px solid #8d776c;
+
+  padding: 40px 25px;
+}
+
+.success-message h3 {
+  font-size: 28px;
+  font-weight: 400;
+
+  margin-bottom: 15px;
+}
+
+.success-message p {
+  font-size: 15px;
+  line-height: 1.7;
+
+  opacity: 0.8;
+}
+
+/* Makes the website work better on phones */
+@media (max-width: 700px) {
+
+  h1 {
+    font-size: 38px;
+  }
+
+  .fresh h2 {
+    font-size: 37px;
+  }
+
+  .categories {
+    grid-template-columns: 1fr;
+  }
+
+    .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-menu h2 {
+    font-size: 42px;
+  }
+
+}
+.story {
+  background-color: #eee5da;
+  color: #3b2a23;
+
+  min-height: 90vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 100px 25px;
+}
+
+.story-content {
+  max-width: 650px;
+  text-align: center;
+}
+
+.section-label-dark {
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+.story h2 {
+  font-size: 65px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.scripture {
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 35px;
+}
+
+.story-text {
+  max-width: 520px;
+  margin: 0 auto 20px;
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+nav {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 40px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+}
+
+.nav-brand {
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #3b2a23;
+  text-decoration: none;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.menu-button {
+  display: inline-block;
+
+  margin-top: 40px;
+  padding: 16px 28px;
+
+  border: 1px solid #f7f3ed;
+
+  color: #f7f3ed;
+  text-decoration: none;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  transition: 0.3s;
+}
+
+.menu-button:hover {
+  background-color: #f7f3ed;
+  color: #3b2a23;
+}
+
+.full-menu {
+  background-color: #f7f3ed;
+  color: #3b2a23;
+
+  padding: 100px 25px;
+  text-align: center;
+}
+
+.full-menu h2 {
+  font-size: 55px;
+  font-weight: 400;
+
+  margin-bottom: 20px;
+}
+
+.menu-intro {
+  max-width: 450px;
+  margin: 0 auto 60px;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.menu-grid {
+  max-width: 950px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1px;
+
+  background-color: #cbbeb2;
+  border: 1px solid #cbbeb2;
+}
+
+.menu-card {
+  background-color: #f7f3ed;
+
+  padding: 55px 35px;
+
+  text-align: left;
+}
+
+.menu-number {
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  margin-bottom: 30px;
+}
+
+.menu-card h3 {
+  font-size: 28px;
+  font-weight: 400;
+
+  margin-bottom: 15px;
+}
+
+.menu-card p:last-child {
+  font-size: 14px;
+  line-height: 1.7;
+
+  opacity: 0.75;
+}
