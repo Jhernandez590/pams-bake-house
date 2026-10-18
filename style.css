@@ -28,6 +28,14 @@ body {
   padding: 40px 25px;
 }
 
+.hero-logo {
+  width: 180px;
+  max-width: 45vw;
+  height: auto;
+
+  margin-bottom: 30px;
+}
+
 .small-title {
   font-size: 12px;
   letter-spacing: 5px;
