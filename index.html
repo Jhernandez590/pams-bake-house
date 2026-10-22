@@ -3,21 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Pam's Bake House — homemade baked goods made with love."
+  >
 
   <title>Pam's Bake House</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
   <!-- NAVIGATION -->
-  <nav>
+  <nav class="navbar">
 
-    <div class="nav-brand">
+    <a href="#home" class="nav-brand">
       PAM'S BAKE HOUSE
-    </div>
+    </a>
 
     <div class="nav-links">
       <a href="#menu">Menu</a>
@@ -28,23 +38,25 @@
   </nav>
 
 
-  <!-- HERO -->
-  <main class="hero">
-    
-    <p class="small-title">WELCOME TO</p>
+  <!-- HOMEPAGE -->
+  <main class="hero" id="home">
 
-    <h1>PAM'S<br>BAKE HOUSE</h1>
+    <div class="hero-content">
 
-    <p class="slogan">Eat Bread & Rest.</p>
+      <p class="hero-slogan">
+        Eat Bread & Rest.
+      </p>
 
-    <p class="description">
-      Homemade baked goods made with love,
-      meant to be shared, savored, and enjoyed.
-    </p>
+      <p class="hero-description">
+        Homemade baked goods made with love,
+        meant to be shared, savored, and enjoyed.
+      </p>
 
-    <a href="#menu" class="hero-button">
-      VIEW OUR MENU
-    </a>
+      <a href="#menu" class="hero-button">
+        VIEW OUR MENU
+      </a>
+
+    </div>
 
   </main>
 
@@ -52,9 +64,14 @@
   <!-- FRESH FROM THE BAKE HOUSE -->
   <section class="fresh" id="menu">
 
-    <p class="section-label">FROM PAM'S KITCHEN</p>
+    <p class="section-label">
+      FROM PAM'S KITCHEN
+    </p>
 
-    <h2>Fresh From<br>the Bake House</h2>
+    <h2>
+      Fresh From<br>
+      the Bake House
+    </h2>
 
     <p class="fresh-text">
       Thoughtfully baked, beautifully packaged,
@@ -70,7 +87,7 @@
         <h3>Cookies</h3>
 
         <p>
-          Soft, warm and baked with love.
+          Soft, warm, and baked with love.
         </p>
       </div>
 
@@ -103,7 +120,7 @@
         <h3>Brownies</h3>
 
         <p>
-          Crispy top, gooey inside.
+          Crispy on top, rich and gooey inside.
         </p>
       </div>
 
@@ -127,7 +144,8 @@
       </p>
 
       <h2>
-        Eat Bread<br>& Rest.
+        Eat Bread<br>
+        & Rest.
       </h2>
 
       <p class="scripture">
@@ -224,49 +242,56 @@
 
     </div>
 
+
+    <a href="#order" class="dark-button">
+      PLACE AN ORDER
+    </a>
+
   </section>
 
 
   <!-- ORDER SECTION -->
-<section class="order-section" id="order">
+  <section class="order-section" id="order">
 
-  <div class="order-heading">
+    <div class="order-heading">
 
-    <p class="order-label">
-      PLACE AN ORDER
-    </p>
+      <p class="order-label">
+        PLACE AN ORDER
+      </p>
 
-    <h2>
-      Something Good<br>Is Baking.
-    </h2>
+      <h2>
+        Something Good<br>
+        Is Baking.
+      </h2>
 
-    <p>
-      Tell us what you're craving and when you need it.
-      We'll follow up to confirm your order.
-    </p>
+      <p>
+        Tell us what you're craving and when you need it.
+        We'll follow up to confirm your order.
+      </p>
 
-  </div>
+    </div>
 
 
-  <form
-    class="order-form"
-    action="https://formspree.io/f/maeqkyob"
-    method="POST"
-  >
+    <form
+      class="order-form"
+      action="https://formspree.io/f/maeqkyob"
+      method="POST"
+      id="order-form"
+    >
 
-    <div class="form-group">
+      <div class="form-group">
 
         <label for="name">
           YOUR NAME
         </label>
 
         <input
-  type="text"
-  id="name"
-  name="name"
-  placeholder="Your name"
-  required
->
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          required
+        >
 
       </div>
 
@@ -311,25 +336,29 @@
           WHAT WOULD YOU LIKE?
         </label>
 
-        <select id="item" name="item" required>
+        <select
+          id="item"
+          name="item"
+          required
+        >
 
           <option value="">
             Choose an item
           </option>
 
-          <option value="cookies">
+          <option value="Cookies">
             Cookies
           </option>
 
-          <option value="brownies">
+          <option value="Brownies">
             Brownies
           </option>
 
-          <option value="cinnamon-rolls">
+          <option value="Cinnamon Rolls">
             Cinnamon Rolls
           </option>
 
-          <option value="sweet-breads">
+          <option value="Sweet Breads">
             Sweet Breads
           </option>
 
@@ -365,6 +394,7 @@
           name="details"
           rows="5"
           placeholder="Quantity, flavors, special requests..."
+          required
         ></textarea>
 
       </div>
@@ -377,20 +407,33 @@
         SEND ORDER REQUEST
       </button>
 
+
+      <p
+        class="form-status"
+        id="form-status"
+      ></p>
+
     </form>
 
-<div class="success-message" id="success-message">
-
-  <h3>Order Request Received!</h3>
-
-  <p>
-    Thank you! Pam will be in touch soon
-    to confirm your order.
-  </p>
-
-</div>
-  
   </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p class="footer-brand">
+      PAM'S BAKE HOUSE
+    </p>
+
+    <p class="footer-slogan">
+      Eat Bread & Rest.
+    </p>
+
+    <p class="footer-copy">
+      &copy; 2026 Pam's Bake House
+    </p>
+
+  </footer>
 
 
   <script src="script.js"></script>
