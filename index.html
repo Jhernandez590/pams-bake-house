@@ -83,9 +83,7 @@
 
       <div class="category">
         <span>01</span>
-
         <h3>Cookies</h3>
-
         <p>
           Brown butter cookies baked fresh
           with rich chocolate chips.
@@ -95,9 +93,7 @@
 
       <div class="category">
         <span>02</span>
-
         <h3>Muffins</h3>
-
         <p>
           Homemade muffins in a variety
           of comforting flavors.
@@ -107,9 +103,7 @@
 
       <div class="category">
         <span>03</span>
-
         <h3>Cinnamon Rolls</h3>
-
         <p>
           Soft cinnamon rolls available
           in mini and big sizes.
@@ -119,9 +113,7 @@
 
       <div class="category">
         <span>04</span>
-
         <h3>More to Love</h3>
-
         <p>
           Brownies, brookies, mini loaves,
           and banana bread.
@@ -431,7 +423,7 @@
 
 
     <a href="#order" class="dark-button">
-      PLACE AN ORDER
+      BUILD YOUR ORDER
     </a>
 
   </section>
@@ -443,17 +435,17 @@
     <div class="order-heading">
 
       <p class="order-label">
-        PLACE AN ORDER
+        BUILD YOUR ORDER
       </p>
 
       <h2>
-        Something Good<br>
-        Is Baking.
+        What Can We<br>
+        Bake for You?
       </h2>
 
       <p>
-        Tell us what you're craving and when you need it.
-        We'll follow up to confirm your order.
+        Choose your favorites below. Your estimated total
+        will update automatically as you build your order.
       </p>
 
     </div>
@@ -465,6 +457,445 @@
       method="POST"
       id="order-form"
     >
+
+
+      <!-- ORDER BUILDER -->
+      <div class="order-builder full-width">
+
+        <div class="builder-heading">
+
+          <span>ITEM</span>
+          <span>QUANTITY</span>
+
+        </div>
+
+
+        <!-- COOKIE -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Chocolate Chip Cookie"
+          data-price="3.50"
+          data-category="cookie"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Chocolate Chip Cookie</h3>
+            <p>$3.50 each</p>
+          </div>
+
+          <div class="quantity-control">
+
+            <button
+              type="button"
+              class="quantity-button minus"
+              aria-label="Decrease cookie quantity"
+            >
+              −
+            </button>
+
+            <span class="quantity-value">0</span>
+
+            <button
+              type="button"
+              class="quantity-button plus"
+              aria-label="Increase cookie quantity"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- MINI CINNAMON ROLL -->
+        <div
+          class="order-product"
+          data-name="Mini Cinnamon Roll"
+          data-price="8"
+          data-category="cinnamon-roll"
+        >
+
+          <div class="product-info">
+            <h3>Mini Cinnamon Roll</h3>
+            <p>$8.00 each</p>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BIG CINNAMON ROLL -->
+        <div
+          class="order-product"
+          data-name="Big Cinnamon Roll"
+          data-price="10"
+          data-category="cinnamon-roll"
+        >
+
+          <div class="product-info">
+            <h3>Big Cinnamon Roll</h3>
+            <p>$10.00 each</p>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BROWNIE -->
+        <div
+          class="order-product"
+          data-name="Chocolate Fudge Brownie"
+          data-price="7"
+          data-category="brownie"
+        >
+
+          <div class="product-info">
+            <h3>Chocolate Fudge Brownie</h3>
+            <p>$7.00 each</p>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BROOKIE -->
+        <div
+          class="order-product"
+          data-name="Brookie"
+          data-price="7"
+          data-category="brookie"
+        >
+
+          <div class="product-info">
+            <h3>Brookie</h3>
+            <p>$7.00 each</p>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- MUFFIN SECTION LABEL -->
+        <div class="builder-category">
+
+          <div>
+            <span>MUFFINS</span>
+            <small>Mix & match flavors</small>
+          </div>
+
+          <strong>$7 EACH · 2 FOR $12</strong>
+
+        </div>
+
+
+        <!-- WALNUT MUFFIN -->
+        <div
+          class="order-product"
+          data-name="Walnut Muffin"
+          data-price="7"
+          data-category="muffin"
+        >
+
+          <div class="product-info">
+            <h3>Walnut Muffin</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- PLAIN MUFFIN -->
+        <div
+          class="order-product"
+          data-name="Plain Muffin"
+          data-price="7"
+          data-category="muffin"
+        >
+
+          <div class="product-info">
+            <h3>Plain Muffin</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BANANA CHOCOLATE CHIP MUFFIN -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Banana Chocolate Chip Muffin"
+          data-price="7"
+          data-category="muffin"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Banana Chocolate Chip Muffin</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BANANA CHOCOLATE CHIP WALNUT -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Banana Chocolate Chip Muffin with Walnut"
+          data-price="7"
+          data-category="muffin"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Banana Chocolate Chip Muffin with Walnut</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BANANA MUFFIN -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Banana Muffin"
+          data-price="7"
+          data-category="muffin"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Banana Muffin</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BLUEBERRY MUFFIN -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Blueberry Muffin"
+          data-price="7"
+          data-category="muffin"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Blueberry Muffin</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- PUMPKIN SPICE MUFFIN -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Cream Cheese Pumpkin Spice Muffin"
+          data-price="7"
+          data-category="muffin"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Cream Cheese Pumpkin Spice Muffin</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- MINI LOAF LABEL -->
+        <div class="builder-category">
+
+          <div>
+            <span>MINI LOAVES</span>
+          </div>
+
+          <strong>$7.50 EACH</strong>
+
+        </div>
+
+
+        <!-- BLUEBERRY MINI LOAF -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Blueberry Mini Loaf"
+          data-price="7.50"
+          data-category="loaf"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Blueberry Mini Loaf</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- PUMPKIN MINI LOAF -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Pumpkin Spice Mini Loaf"
+          data-price="7.50"
+          data-category="loaf"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Pumpkin Spice Mini Loaf</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BANANA MINI LOAF -->
+        <div
+          class="order-product"
+          data-name="Brown Butter Banana Mini Loaf"
+          data-price="7.50"
+          data-category="loaf"
+        >
+
+          <div class="product-info">
+            <h3>Brown Butter Banana Mini Loaf</h3>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- BANANA BREAD -->
+        <div
+          class="order-product"
+          data-name="Banana Bread"
+          data-price="7.50"
+          data-category="banana-bread"
+        >
+
+          <div class="product-info">
+            <h3>Banana Bread</h3>
+            <p>$7.50 each</p>
+          </div>
+
+          <div class="quantity-control">
+            <button type="button" class="quantity-button minus">−</button>
+            <span class="quantity-value">0</span>
+            <button type="button" class="quantity-button plus">+</button>
+          </div>
+
+        </div>
+
+
+        <!-- TOTAL -->
+        <div class="order-total">
+
+          <div>
+            <span>ESTIMATED TOTAL</span>
+
+            <small>
+              Final order will be confirmed by Pam's Bake House.
+            </small>
+          </div>
+
+          <strong id="estimated-total">
+            $0.00
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- HIDDEN ORDER DATA SENT TO FORMSPREE -->
+      <input
+        type="hidden"
+        id="order-summary"
+        name="order_summary"
+      >
+
+      <input
+        type="hidden"
+        id="order-total"
+        name="estimated_total"
+      >
+
+
+      <!-- CUSTOMER INFORMATION -->
+      <div class="customer-heading full-width">
+
+        <p>YOUR INFORMATION</p>
+
+        <h3>Almost There.</h3>
+
+      </div>
+
 
       <div class="form-group">
 
@@ -519,109 +950,6 @@
 
       <div class="form-group">
 
-        <label for="item">
-          WHAT WOULD YOU LIKE?
-        </label>
-
-        <select
-          id="item"
-          name="item"
-          required
-        >
-
-          <option value="">
-            Choose an item
-          </option>
-
-          <option value="Brown Butter Chocolate Chip Cookie">
-            Brown Butter Chocolate Chip Cookie
-          </option>
-
-          <option value="Mini Cinnamon Roll">
-            Mini Cinnamon Roll
-          </option>
-
-          <option value="Big Cinnamon Roll">
-            Big Cinnamon Roll
-          </option>
-
-          <option value="Chocolate Fudge Brownie">
-            Chocolate Fudge Brownie
-          </option>
-
-          <option value="Brookie">
-            Brookie
-          </option>
-
-          <option value="Walnut Muffin">
-            Walnut Muffin
-          </option>
-
-          <option value="Plain Muffin">
-            Plain Muffin
-          </option>
-
-          <option value="Brown Butter Banana Chocolate Chip Muffin">
-            Brown Butter Banana Chocolate Chip Muffin
-          </option>
-
-          <option value="Brown Butter Banana Chocolate Chip Muffin with Walnut">
-            Brown Butter Banana Chocolate Chip Muffin with Walnut
-          </option>
-
-          <option value="Brown Butter Banana Muffin">
-            Brown Butter Banana Muffin
-          </option>
-
-          <option value="Brown Butter Blueberry Muffin">
-            Brown Butter Blueberry Muffin
-          </option>
-
-          <option value="Brown Butter Cream Cheese Pumpkin Spice Muffin">
-            Brown Butter Cream Cheese Pumpkin Spice Muffin
-          </option>
-
-          <option value="Brown Butter Blueberry Mini Loaf">
-            Brown Butter Blueberry Mini Loaf
-          </option>
-
-          <option value="Brown Butter Pumpkin Spice Mini Loaf">
-            Brown Butter Pumpkin Spice Mini Loaf
-          </option>
-
-          <option value="Brown Butter Banana Mini Loaf">
-            Brown Butter Banana Mini Loaf
-          </option>
-
-          <option value="Banana Bread">
-            Banana Bread
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="quantity">
-          QUANTITY
-        </label>
-
-        <input
-          type="number"
-          id="quantity"
-          name="quantity"
-          min="1"
-          value="1"
-          required
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
         <label for="date">
           WHEN DO YOU NEED IT?
         </label>
@@ -639,14 +967,14 @@
       <div class="form-group full-width">
 
         <label for="details">
-          ORDER DETAILS
+          SPECIAL REQUESTS
         </label>
 
         <textarea
           id="details"
           name="details"
           rows="5"
-          placeholder="Additional quantities, special requests, or anything else we should know..."
+          placeholder="Tell us about any special requests or anything else we should know..."
         ></textarea>
 
       </div>
