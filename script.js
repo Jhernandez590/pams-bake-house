@@ -20,7 +20,16 @@ const orderTotalInput =
 function updateOrder() {
 
   let regularTotal = 0;
-  let muffinQuantity = 0;
+
+  /*
+    DEAL ITEMS:
+    Muffins + Brownies + Brookies
+
+    $7 each
+    Any 2 for $12
+  */
+
+  let dealQuantity = 0;
 
   const selectedItems = [];
 
@@ -45,9 +54,19 @@ function updateOrder() {
       );
 
 
-      if (category === "muffin") {
+      /*
+        MUFFINS, BROWNIES & BROOKIES
+        ALL COUNT TOWARD THE
+        2 FOR $12 DEAL
+      */
 
-        muffinQuantity += quantity;
+      if (
+        category === "muffin" ||
+        category === "brownie" ||
+        category === "brookie"
+      ) {
+
+        dealQuantity += quantity;
 
       } else {
 
@@ -61,20 +80,25 @@ function updateOrder() {
 
 
   /* =========================
-     MUFFIN DEAL
-     $7 EACH
-     2 FOR $12
+     MIX & MATCH DEAL
+
+     1 = $7
+     2 = $12
+     3 = $19
+     4 = $24
+     5 = $31
+     ETC.
   ========================= */
 
-  const muffinPairs =
-    Math.floor(muffinQuantity / 2);
+  const dealPairs =
+    Math.floor(dealQuantity / 2);
 
-  const remainingMuffins =
-    muffinQuantity % 2;
+  const remainingDealItems =
+    dealQuantity % 2;
 
-  const muffinTotal =
-    (muffinPairs * 12) +
-    (remainingMuffins * 7);
+  const dealTotal =
+    (dealPairs * 12) +
+    (remainingDealItems * 7);
 
 
   /* =========================
@@ -82,7 +106,7 @@ function updateOrder() {
   ========================= */
 
   const finalTotal =
-    regularTotal + muffinTotal;
+    regularTotal + dealTotal;
 
 
   estimatedTotalDisplay.textContent =
@@ -90,7 +114,8 @@ function updateOrder() {
 
 
   /* =========================
-     DATA SENT TO FORMSPREE
+     ORDER SUMMARY
+     SENT TO FORMSPREE
   ========================= */
 
   if (selectedItems.length > 0) {
@@ -236,8 +261,8 @@ if (form) {
       event.preventDefault();
 
 
-      /* CUSTOMER MUST CHOOSE
-         AT LEAST ONE ITEM */
+      /* MUST SELECT AT LEAST
+         ONE BAKED GOOD */
 
       if (!orderHasItems()) {
 
