@@ -72,7 +72,7 @@ body {
 
   text-align: center;
 
-  padding: 80px 25px 10px;
+  padding: 80px 25px 25px;
 
   background-image: url("New Homepage PNG.png");
 
@@ -290,77 +290,133 @@ body {
   background-color: #f7f3ed;
   color: #3b2a23;
 
-  padding: 100px 25px;
+  padding: 110px 25px;
 
   text-align: center;
 }
 
-.full-menu h2 {
-  font-size: 55px;
+.full-menu > h2 {
+  font-size: 58px;
   font-weight: 400;
 
   margin-bottom: 20px;
 }
 
 .menu-intro {
-  max-width: 450px;
+  max-width: 480px;
 
-  margin: 0 auto 60px;
+  margin: 0 auto 75px;
 
   font-size: 16px;
   line-height: 1.7;
 }
 
-.menu-grid {
-  max-width: 950px;
 
-  margin: auto;
+/* MENU CONTAINER */
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.menu-sections {
+  width: 100%;
+  max-width: 900px;
 
-  gap: 1px;
+  margin: 0 auto;
 
-  background-color: #cbbeb2;
-
-  border: 1px solid #cbbeb2;
+  border-top: 1px solid #cbbeb2;
 }
 
-.menu-card {
-  background-color: #f7f3ed;
 
-  padding: 55px 35px;
+/* EACH CATEGORY */
+
+.menu-category {
+  padding: 55px 0;
+
+  border-bottom: 1px solid #cbbeb2;
 
   text-align: left;
 }
 
-.menu-number {
+.menu-category-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 25px;
+
+  margin-bottom: 35px;
+}
+
+.menu-category-heading > p,
+.menu-category-heading > div > p {
+  font-size: 10px;
+  letter-spacing: 3px;
+
+  margin-bottom: 8px;
+
+  opacity: 0.65;
+}
+
+.menu-category-heading h3 {
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.category-price {
   font-size: 11px;
   letter-spacing: 2px;
 
-  margin-bottom: 30px;
+  white-space: nowrap;
+
+  padding-bottom: 4px;
 }
 
-.menu-card h3 {
-  font-size: 28px;
+
+/* INDIVIDUAL MENU ITEMS */
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 35px;
+
+  padding: 22px 0;
+
+  border-top: 1px solid #ded4ca;
+}
+
+.menu-item h4 {
+  font-size: 19px;
   font-weight: 400;
+  line-height: 1.35;
 
-  margin-bottom: 15px;
+  margin-bottom: 7px;
 }
 
-.menu-card p:last-child {
+.menu-item p {
+  max-width: 560px;
+
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.6;
 
-  opacity: 0.75;
+  opacity: 0.7;
 }
+
+.price {
+  flex-shrink: 0;
+
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+
+/* ORDER BUTTON UNDER MENU */
 
 .dark-button {
   display: inline-block;
 
-  margin-top: 50px;
+  margin-top: 60px;
 
-  padding: 17px 30px;
+  padding: 17px 32px;
 
   background-color: #3b2a23;
   color: #ffffff;
@@ -369,6 +425,12 @@ body {
 
   font-size: 11px;
   letter-spacing: 2px;
+
+  transition: 0.3s;
+}
+
+.dark-button:hover {
+  opacity: 0.8;
 }
 
 
@@ -416,6 +478,9 @@ body {
 
   opacity: 0.85;
 }
+
+
+/* ORDER FORM */
 
 .order-form {
   max-width: 800px;
@@ -500,10 +565,17 @@ textarea {
   cursor: pointer;
 
   margin-top: 10px;
+
+  transition: 0.3s;
 }
 
 .order-button:hover {
   opacity: 0.85;
+}
+
+.order-button:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .form-status {
@@ -591,10 +663,12 @@ footer {
   }
 
 
+  /* HOMEPAGE */
+
   .hero {
     min-height: 100svh;
 
-    padding: 80px 20px 45px;
+    padding: 80px 20px 25px;
 
     background-size: cover;
     background-position: center top;
@@ -609,6 +683,8 @@ footer {
   }
 
 
+  /* FRESH */
+
   .fresh {
     padding: 80px 20px;
   }
@@ -621,6 +697,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
+
+  /* STORY */
 
   .story {
     min-height: auto;
@@ -637,22 +715,61 @@ footer {
   }
 
 
+  /* MENU */
+
   .full-menu {
-    padding: 80px 20px;
+    padding: 85px 20px;
   }
 
-  .full-menu h2 {
-    font-size: 42px;
+  .full-menu > h2 {
+    font-size: 44px;
   }
 
-  .menu-grid {
-    grid-template-columns: 1fr;
+  .menu-intro {
+    margin-bottom: 55px;
   }
 
-  .menu-card {
-    padding: 40px 25px;
+  .menu-category {
+    padding: 42px 0;
   }
 
+  .menu-category-heading {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+  }
+
+  .menu-category-heading h3 {
+    font-size: 29px;
+  }
+
+  .category-price {
+    white-space: normal;
+  }
+
+  .menu-item {
+    gap: 20px;
+
+    padding: 20px 0;
+  }
+
+  .menu-item h4 {
+    font-size: 17px;
+  }
+
+  .menu-item p {
+    font-size: 13px;
+  }
+
+  .price {
+    font-size: 15px;
+  }
+
+
+  /* ORDER */
 
   .order-section {
     padding: 80px 20px;
