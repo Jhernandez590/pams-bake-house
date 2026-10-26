@@ -1453,3 +1453,201 @@ footer {
   }
 
 }
+
+/* =========================
+   RESPONSIVE HOMEPAGE FIX
+   iPhone + iPad + MacBook
+========================= */
+
+/*
+  Main hero:
+  - one cream background edge-to-edge
+  - artwork stays centered
+  - text stays below the table
+*/
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  position: relative;
+
+  padding: 0 25px 35px;
+
+  background-image: url("New Homepage PNG.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  /*
+    Make the artwork fill the hero horizontally
+    instead of creating a narrow cream panel.
+  */
+  background-size: 100% auto;
+
+  /*
+    Match the cream inside Pam's artwork.
+    This removes the obvious second cream color.
+  */
+  background-color: #fbf6e9;
+}
+
+
+/* Keep homepage text together */
+
+.hero-content {
+  width: 100%;
+  max-width: 620px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Give the slogan clean separation from artwork */
+
+.hero-slogan {
+  margin: 0 0 14px;
+
+  font-size: 25px;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.hero-description {
+  max-width: 520px;
+
+  margin: 0 auto 24px;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   MACBOOK / DESKTOP
+========================= */
+
+@media (min-width: 901px) {
+
+  .hero {
+    /*
+      Slightly taller hero gives the artwork
+      and text their own space.
+    */
+    min-height: 105vh;
+
+    padding-bottom: 35px;
+
+    background-size: 100% auto;
+    background-position: center top;
+  }
+
+  .hero-content {
+    max-width: 650px;
+  }
+
+}
+
+
+/* =========================
+   IPAD / TABLET
+========================= */
+
+@media (min-width: 701px) and (max-width: 900px) {
+
+  .hero {
+    min-height: 100vh;
+
+    padding: 0 30px 32px;
+
+    background-size: 100% auto;
+    background-position: center top;
+  }
+
+  .hero-content {
+    max-width: 580px;
+  }
+
+}
+
+
+/* =========================
+   IPHONE / MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    /*
+      More vertical room on phones keeps
+      the text underneath the table.
+    */
+    min-height: 100svh;
+
+    padding: 0 20px 28px;
+
+    /*
+      Do NOT use cover here.
+      Cover was cropping/enlarging the artwork
+      and causing the overlap.
+    */
+    background-size: 100% auto;
+    background-position: center top;
+  }
+
+  .hero-content {
+    max-width: 430px;
+  }
+
+  .hero-slogan {
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-description {
+    max-width: 360px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    margin-bottom: 22px;
+  }
+
+  .hero-button {
+    padding: 15px 27px;
+  }
+
+}
+
+
+/* =========================
+   SMALL IPHONES
+========================= */
+
+@media (max-width: 420px) {
+
+  .hero {
+    min-height: 100svh;
+    padding: 0 18px 24px;
+
+    background-size: 100% auto;
+  }
+
+  .hero-slogan {
+    font-size: 20px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+    max-width: 330px;
+  }
+
+}
