@@ -310,14 +310,20 @@ if (form) {
           );
 
 
-        if (response.ok) {
+       if (response.ok) {
+  const confirmation = document.getElementById("order-confirmation");
 
-          formStatus.textContent =
-            "Thank you! Your order request has been sent. Pam's Bake House will follow up to confirm your order.";
+  formStatus.textContent = "";
+  confirmation.classList.add("show");
 
-          form.reset();
+  form.reset();
+  resetOrderBuilder();
 
-          resetOrderBuilder();
+  confirmation.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
 
 
         } else {
