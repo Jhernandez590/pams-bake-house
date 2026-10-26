@@ -323,8 +323,6 @@ if (form) {
     behavior: "smooth",
     block: "center"
   });
-}
-
 
         } else {
 
