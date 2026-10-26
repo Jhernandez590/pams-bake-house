@@ -1251,4 +1251,95 @@ footer {
     gap: 14px;
   }
 
+  /* =========================
+   PICKUP / DELIVERY OPTIONS
+========================= */
+
+.fulfillment-group {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.fulfillment-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.fulfillment-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 20px 22px;
+
+  background: #f7f0e6;
+  border: 1px solid rgba(75, 45, 31, 0.25);
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fulfillment-option:hover {
+  border-color: #6b4330;
+  transform: translateY(-2px);
+}
+
+.fulfillment-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+
+  accent-color: #5d3928;
+  cursor: pointer;
+}
+
+.fulfillment-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fulfillment-option strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #4b2d1f;
+}
+
+.fulfillment-option small {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #7a5a48;
+}
+
+.fulfillment-option:has(input:checked) {
+  background: #eee0cf;
+  border-color: #5d3928;
+  box-shadow: inset 0 0 0 1px #5d3928;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .fulfillment-options {
+    grid-template-columns: 1fr;
+  }
+
+  .fulfillment-option {
+    padding: 18px;
+  }
+
+}
+
 }
