@@ -356,3 +356,93 @@ if (form) {
 ========================= */
 
 updateOrder();
+
+/* =========================
+   CATERING FORM SUBMISSION
+========================= */
+
+const cateringForm =
+  document.querySelector(".catering-form");
+
+const cateringConfirmation =
+  document.getElementById("catering-confirmation");
+
+
+if (cateringForm) {
+
+  cateringForm.addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      const cateringSubmitButton =
+        cateringForm.querySelector(".catering-submit");
+
+
+      cateringSubmitButton.disabled = true;
+
+      cateringSubmitButton.textContent =
+        "SENDING...";
+
+
+      const cateringFormData =
+        new FormData(cateringForm);
+
+
+      try {
+
+        const response =
+          await fetch(
+            cateringForm.action,
+            {
+              method: cateringForm.method,
+              body: cateringFormData,
+              headers: {
+                Accept: "application/json"
+              }
+            }
+          );
+
+
+        if (response.ok) {
+
+          cateringConfirmation.classList.add("show");
+
+          cateringForm.reset();
+
+
+          cateringConfirmation.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+
+        } else {
+
+          alert(
+            "Something went wrong while sending your catering inquiry. Please try again."
+          );
+
+        }
+
+
+      } catch (error) {
+
+        alert(
+          "Unable to send your catering inquiry right now. Please try again."
+        );
+
+      }
+
+
+      cateringSubmitButton.disabled = false;
+
+      cateringSubmitButton.textContent =
+        "SEND CATERING INQUIRY";
+
+    }
+  );
+
+}
