@@ -1651,3 +1651,192 @@ footer {
   }
 
 }
+
+/* =========================
+   CATERING & EVENTS
+========================= */
+
+.catering {
+  background-color: #3b2a23;
+  color: #f7f3ed;
+  padding: 110px 25px;
+  text-align: center;
+}
+
+.catering-inner {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+
+/* DECORATIVE HEART + LINES */
+
+.catering-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  max-width: 420px;
+  margin: 0 auto 35px;
+}
+
+.catering-decoration > span:not(.catering-heart) {
+  height: 1px;
+  flex: 1;
+  background-color: rgba(247, 243, 237, 0.35);
+}
+
+.catering-heart {
+  font-size: 27px;
+  line-height: 1;
+  color: #f7f3ed;
+}
+
+.catering-decoration-bottom {
+  margin-top: 45px;
+  margin-bottom: 0;
+}
+
+
+/* LABEL */
+
+.catering-label {
+  margin-bottom: 22px;
+
+  font-size: 11px;
+  letter-spacing: 4px;
+
+  color: #d8c8bb;
+}
+
+
+/* MAIN HEADING */
+
+.catering h2 {
+  margin-bottom: 30px;
+
+  font-size: clamp(45px, 7vw, 72px);
+  font-weight: 400;
+  line-height: 1.05;
+
+  color: #f7f3ed;
+}
+
+
+/* DESCRIPTION */
+
+.catering-text {
+  max-width: 610px;
+  margin: 0 auto 18px;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: #e5d9cf;
+}
+
+
+/* FEATURES */
+
+.catering-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0;
+
+  margin: 42px auto 38px;
+}
+
+.catering-features span {
+  padding: 0 24px;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #d8c8bb;
+}
+
+.catering-features span + span {
+  border-left: 1px solid rgba(247, 243, 237, 0.3);
+}
+
+
+/* BUTTON */
+
+.catering-button {
+  display: inline-block;
+
+  padding: 17px 30px;
+
+  border: 1px solid #f7f3ed;
+
+  color: #f7f3ed;
+  background-color: transparent;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.catering-button:hover {
+  background-color: #f7f3ed;
+  color: #3b2a23;
+}
+
+
+/* =========================
+   CATERING MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .catering {
+    padding: 85px 20px;
+  }
+
+  .catering-decoration {
+    max-width: 300px;
+    gap: 14px;
+  }
+
+  .catering h2 {
+    font-size: 45px;
+  }
+
+  .catering-text {
+    max-width: 370px;
+
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .catering-features {
+    flex-direction: column;
+    gap: 14px;
+
+    margin: 35px auto;
+  }
+
+  .catering-features span {
+    padding: 0;
+  }
+
+  .catering-features span + span {
+    border-left: none;
+  }
+
+  .catering-button {
+    padding: 16px 24px;
+  }
+
+}
