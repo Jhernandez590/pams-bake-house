@@ -1840,3 +1840,212 @@ footer {
   }
 
 }
+
+/* =========================
+   CATERING INQUIRY FORM
+========================= */
+
+.catering-inquiry {
+  background-color: #eee5da;
+  color: #3b2a23;
+  padding: 105px 25px;
+}
+
+.catering-inquiry-inner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/* HEADING */
+
+.catering-inquiry-label {
+  margin-bottom: 18px;
+
+  text-align: center;
+
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #765a4a;
+}
+
+.catering-inquiry h2 {
+  margin-bottom: 22px;
+
+  text-align: center;
+
+  font-size: 58px;
+  font-weight: 400;
+  line-height: 1.05;
+
+  color: #3b2a23;
+}
+
+.catering-inquiry-intro {
+  max-width: 580px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+
+  font-size: 15px;
+  line-height: 1.8;
+
+  color: #765a4a;
+}
+
+
+/* FORM LAYOUT */
+
+.catering-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+.catering-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.catering-full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* LABELS */
+
+.catering-field label {
+  margin-bottom: 10px;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  color: #4b2d1f;
+}
+
+
+/* INPUTS */
+
+.catering-field input,
+.catering-field textarea {
+  width: 100%;
+
+  padding: 16px;
+
+  background-color: #f7f3ed;
+  color: #3b2a23;
+
+  border: 1px solid #c5b5a8;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+
+  outline: none;
+
+  transition: border-color 0.25s ease;
+}
+
+.catering-field input:focus,
+.catering-field textarea:focus {
+  border-color: #5d3928;
+}
+
+.catering-field input::placeholder,
+.catering-field textarea::placeholder {
+  color: #9b887a;
+}
+
+.catering-field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+
+/* SEND BUTTON */
+
+.catering-submit {
+  grid-column: 1 / -1;
+
+  justify-self: center;
+
+  margin-top: 15px;
+
+  padding: 18px 34px;
+
+  background-color: #3b2a23;
+  color: #f7f3ed;
+
+  border: 1px solid #3b2a23;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.catering-submit:hover {
+  background-color: transparent;
+  color: #3b2a23;
+}
+
+
+/* NOTE UNDER FORM */
+
+.catering-note {
+  max-width: 600px;
+
+  margin: 32px auto 0;
+
+  text-align: center;
+
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.7;
+
+  color: #765a4a;
+}
+
+
+/* =========================
+   CATERING FORM MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .catering-inquiry {
+    padding: 80px 20px;
+  }
+
+  .catering-inquiry h2 {
+    font-size: 43px;
+  }
+
+  .catering-inquiry-intro {
+    margin-bottom: 42px;
+    font-size: 14px;
+  }
+
+  .catering-form {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .catering-full-width,
+  .catering-submit {
+    grid-column: 1;
+  }
+
+  .catering-submit {
+    width: 100%;
+  }
+
+}
