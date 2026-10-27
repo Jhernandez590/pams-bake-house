@@ -477,6 +477,137 @@
   </div>
 
 </section>
+
+<!-- =========================
+     CATERING INQUIRY
+========================= -->
+
+<section class="catering-inquiry" id="catering-inquiry">
+
+  <div class="catering-inquiry-inner">
+
+    <p class="catering-inquiry-label">
+      PLAN YOUR EVENT
+    </p>
+
+    <h2>Catering Inquiry</h2>
+
+    <p class="catering-inquiry-intro">
+      Tell us a little about your event and what you're
+      looking for. Pam will review your request and contact
+      you to discuss availability and details.
+    </p>
+
+    <form
+      class="catering-form"
+      action="https://formspree.io/f/maeqkyob"
+      method="POST"
+    >
+
+      <div class="catering-field">
+        <label for="catering-name">NAME</label>
+        <input
+          type="text"
+          id="catering-name"
+          name="name"
+          placeholder="Your name"
+          required
+        >
+      </div>
+
+      <div class="catering-field">
+        <label for="catering-email">EMAIL</label>
+        <input
+          type="email"
+          id="catering-email"
+          name="email"
+          placeholder="Your email"
+          required
+        >
+      </div>
+
+      <div class="catering-field">
+        <label for="catering-phone">PHONE NUMBER</label>
+        <input
+          type="tel"
+          id="catering-phone"
+          name="phone"
+          placeholder="Your phone number"
+          required
+        >
+      </div>
+
+      <div class="catering-field">
+        <label for="event-date">EVENT DATE</label>
+        <input
+          type="date"
+          id="event-date"
+          name="event_date"
+          required
+        >
+      </div>
+
+      <div class="catering-field">
+        <label for="event-type">EVENT TYPE</label>
+        <input
+          type="text"
+          id="event-type"
+          name="event_type"
+          placeholder="Birthday, wedding, church event..."
+          required
+        >
+      </div>
+
+      <div class="catering-field">
+        <label for="guest-count">ESTIMATED GUEST COUNT</label>
+        <input
+          type="number"
+          id="guest-count"
+          name="guest_count"
+          placeholder="Number of guests"
+          min="1"
+          required
+        >
+      </div>
+
+      <div class="catering-field catering-full-width">
+        <label for="catering-details">
+          WHAT ARE YOU INTERESTED IN?
+        </label>
+
+        <textarea
+          id="catering-details"
+          name="catering_details"
+          rows="6"
+          placeholder="Tell us what baked goods you're interested in, quantities, special requests, and anything else we should know."
+          required
+        ></textarea>
+      </div>
+
+      <input
+        type="hidden"
+        name="form_type"
+        value="Catering Inquiry"
+      >
+
+      <button
+        type="submit"
+        class="catering-submit"
+      >
+        SEND CATERING INQUIRY
+      </button>
+
+    </form>
+
+    <p class="catering-note">
+      Submitting an inquiry does not confirm your event.
+      Pam will contact you to discuss availability,
+      quantities, pricing, and event details.
+    </p>
+
+  </div>
+
+</section>
   
   <!-- ORDERING INFORMATION -->
   <section class="ordering-info">
