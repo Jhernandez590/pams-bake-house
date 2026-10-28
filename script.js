@@ -1,7 +1,12 @@
+/* =========================
+   REGULAR ORDER FORM
+========================= */
+
 const form = document.getElementById("order-form");
 const formStatus = document.getElementById("form-status");
 
-const products = document.querySelectorAll(".order-product");
+const products =
+  document.querySelectorAll(".order-product");
 
 const estimatedTotalDisplay =
   document.getElementById("estimated-total");
@@ -20,15 +25,6 @@ const orderTotalInput =
 function updateOrder() {
 
   let regularTotal = 0;
-
-  /*
-    DEAL ITEMS:
-    Muffins + Brownies + Brookies
-
-    $7 each
-    Any 2 for $12
-  */
-
   let dealQuantity = 0;
 
   const selectedItems = [];
@@ -36,9 +32,14 @@ function updateOrder() {
 
   products.forEach(function (product) {
 
-    const name = product.dataset.name;
-    const price = Number(product.dataset.price);
-    const category = product.dataset.category;
+    const name =
+      product.dataset.name;
+
+    const price =
+      Number(product.dataset.price);
+
+    const category =
+      product.dataset.category;
 
     const quantityElement =
       product.querySelector(".quantity-value");
@@ -55,9 +56,10 @@ function updateOrder() {
 
 
       /*
-        MUFFINS, BROWNIES & BROOKIES
-        ALL COUNT TOWARD THE
-        2 FOR $12 DEAL
+        MUFFINS + BROWNIES + BROOKIES
+
+        $7 each
+        Any 2 for $12
       */
 
       if (
@@ -70,7 +72,8 @@ function updateOrder() {
 
       } else {
 
-        regularTotal += price * quantity;
+        regularTotal +=
+          price * quantity;
 
       }
 
@@ -79,16 +82,7 @@ function updateOrder() {
   });
 
 
-  /* =========================
-     MIX & MATCH DEAL
-
-     1 = $7
-     2 = $12
-     3 = $19
-     4 = $24
-     5 = $31
-     ETC.
-  ========================= */
+  /* MIX & MATCH DEAL */
 
   const dealPairs =
     Math.floor(dealQuantity / 2);
@@ -101,38 +95,45 @@ function updateOrder() {
     (remainingDealItems * 7);
 
 
-  /* =========================
-     FINAL TOTAL
-  ========================= */
+  /* FINAL TOTAL */
 
   const finalTotal =
     regularTotal + dealTotal;
 
 
-  estimatedTotalDisplay.textContent =
-    "$" + finalTotal.toFixed(2);
+  if (estimatedTotalDisplay) {
 
-
-  /* =========================
-     ORDER SUMMARY
-     SENT TO FORMSPREE
-  ========================= */
-
-  if (selectedItems.length > 0) {
-
-    orderSummaryInput.value =
-      selectedItems.join("\n");
-
-  } else {
-
-    orderSummaryInput.value =
-      "No items selected";
+    estimatedTotalDisplay.textContent =
+      "$" + finalTotal.toFixed(2);
 
   }
 
 
-  orderTotalInput.value =
-    "$" + finalTotal.toFixed(2);
+  /* ORDER SUMMARY */
+
+  if (orderSummaryInput) {
+
+    if (selectedItems.length > 0) {
+
+      orderSummaryInput.value =
+        selectedItems.join("\n");
+
+    } else {
+
+      orderSummaryInput.value =
+        "No items selected";
+
+    }
+
+  }
+
+
+  if (orderTotalInput) {
+
+    orderTotalInput.value =
+      "$" + finalTotal.toFixed(2);
+
+  }
 
 }
 
@@ -151,6 +152,15 @@ products.forEach(function (product) {
 
   const quantityElement =
     product.querySelector(".quantity-value");
+
+
+  if (
+    !minusButton ||
+    !plusButton ||
+    !quantityElement
+  ) {
+    return;
+  }
 
 
   plusButton.addEventListener(
@@ -197,7 +207,7 @@ products.forEach(function (product) {
 
 
 /* =========================
-   CHECK IF ORDER HAS ITEMS
+   CHECK ORDER ITEMS
 ========================= */
 
 function orderHasItems() {
@@ -207,12 +217,17 @@ function orderHasItems() {
 
   products.forEach(function (product) {
 
+    const quantityElement =
+      product.querySelector(".quantity-value");
+
+
+    if (!quantityElement) {
+      return;
+    }
+
+
     const quantity =
-      Number(
-        product.querySelector(
-          ".quantity-value"
-        ).textContent
-      );
+      Number(quantityElement.textContent);
 
 
     if (quantity > 0) {
@@ -238,7 +253,13 @@ function resetOrderBuilder() {
     const quantityElement =
       product.querySelector(".quantity-value");
 
-    quantityElement.textContent = "0";
+
+    if (quantityElement) {
+
+      quantityElement.textContent =
+        "0";
+
+    }
 
   });
 
@@ -249,7 +270,7 @@ function resetOrderBuilder() {
 
 
 /* =========================
-   FORM SUBMISSION
+   REGULAR ORDER SUBMISSION
 ========================= */
 
 if (form) {
@@ -261,13 +282,14 @@ if (form) {
       event.preventDefault();
 
 
-      /* MUST SELECT AT LEAST
-         ONE BAKED GOOD */
-
       if (!orderHasItems()) {
 
-        formStatus.textContent =
-          "Please choose at least one baked good before sending your order.";
+        if (formStatus) {
+
+          formStatus.textContent =
+            "Please choose at least one baked good before sending your order.";
+
+        }
 
         return;
 
@@ -280,15 +302,28 @@ if (form) {
       const submitButton =
         form.querySelector(".order-button");
 
+      const confirmation =
+        document.getElementById(
+          "order-confirmation"
+        );
 
-      submitButton.disabled = true;
 
-      submitButton.textContent =
-        "SENDING...";
+      if (submitButton) {
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+          "SENDING...";
+
+      }
 
 
-      formStatus.textContent =
-        "Sending your order request...";
+      if (formStatus) {
+
+        formStatus.textContent =
+          "Sending your order request...";
+
+      }
 
 
       const formData =
@@ -301,7 +336,7 @@ if (form) {
           await fetch(
             form.action,
             {
-              method: form.method,
+              method: "POST",
               body: formData,
               headers: {
                 Accept: "application/json"
@@ -310,40 +345,69 @@ if (form) {
           );
 
 
-       if (response.ok) {
-  const confirmation = document.getElementById("order-confirmation");
+        if (response.ok) {
 
-  formStatus.textContent = "";
-  confirmation.classList.add("show");
+          if (formStatus) {
+            formStatus.textContent = "";
+          }
 
-  form.reset();
-  resetOrderBuilder();
 
-  confirmation.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-  });
+          if (confirmation) {
+
+            confirmation.classList.add(
+              "show"
+            );
+
+          }
+
+
+          form.reset();
+
+          resetOrderBuilder();
+
+
+          if (confirmation) {
+
+            confirmation.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
+          }
+
 
         } else {
 
-          formStatus.textContent =
-            "Something went wrong while sending your order. Please try again.";
+          if (formStatus) {
+
+            formStatus.textContent =
+              "Something went wrong while sending your order. Please try again.";
+
+          }
 
         }
 
 
       } catch (error) {
 
-        formStatus.textContent =
-          "Unable to send your order request right now. Please try again.";
+        if (formStatus) {
+
+          formStatus.textContent =
+            "Unable to send your order request right now. Please try again.";
+
+        }
 
       }
 
 
-      submitButton.disabled = false;
+      if (submitButton) {
 
-      submitButton.textContent =
-        "SEND ORDER REQUEST";
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "SEND ORDER REQUEST";
+
+      }
 
     }
   );
@@ -352,20 +416,16 @@ if (form) {
 
 
 /* =========================
-   INITIALIZE
-========================= */
-
-updateOrder();
-
-/* =========================
-   CATERING FORM SUBMISSION
+   CATERING FORM
 ========================= */
 
 const cateringForm =
   document.querySelector(".catering-form");
 
 const cateringConfirmation =
-  document.getElementById("catering-confirmation");
+  document.getElementById(
+    "catering-confirmation"
+  );
 
 
 if (cateringForm) {
@@ -374,17 +434,29 @@ if (cateringForm) {
     "submit",
     async function (event) {
 
+      /*
+        STOP BROWSER FROM GOING
+        TO FORMSPREE'S WEBSITE
+      */
+
       event.preventDefault();
 
 
       const cateringSubmitButton =
-        cateringForm.querySelector(".catering-submit");
+        cateringForm.querySelector(
+          ".catering-submit"
+        );
 
 
-      cateringSubmitButton.disabled = true;
+      if (cateringSubmitButton) {
 
-      cateringSubmitButton.textContent =
-        "SENDING...";
+        cateringSubmitButton.disabled =
+          true;
+
+        cateringSubmitButton.textContent =
+          "SENDING...";
+
+      }
 
 
       const cateringFormData =
@@ -397,7 +469,7 @@ if (cateringForm) {
           await fetch(
             cateringForm.action,
             {
-              method: cateringForm.method,
+              method: "POST",
               body: cateringFormData,
               headers: {
                 Accept: "application/json"
@@ -408,15 +480,22 @@ if (cateringForm) {
 
         if (response.ok) {
 
-          cateringConfirmation.classList.add("show");
-
           cateringForm.reset();
 
 
-          cateringConfirmation.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
+          if (cateringConfirmation) {
+
+            cateringConfirmation.classList.add(
+              "show"
+            );
+
+
+            cateringConfirmation.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
+          }
 
 
         } else {
@@ -437,12 +516,24 @@ if (cateringForm) {
       }
 
 
-      cateringSubmitButton.disabled = false;
+      if (cateringSubmitButton) {
 
-      cateringSubmitButton.textContent =
-        "SEND CATERING INQUIRY";
+        cateringSubmitButton.disabled =
+          false;
+
+        cateringSubmitButton.textContent =
+          "SEND CATERING INQUIRY";
+
+      }
 
     }
   );
 
 }
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+updateOrder();
