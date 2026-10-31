@@ -23,90 +23,70 @@ const orderTotalInput =
 ========================= */
 
 function updateOrder() {
-
   let regularTotal = 0;
   let dealQuantity = 0;
-
+  let cookieQuantity = 0;
   const selectedItems = [];
 
-
   products.forEach(function (product) {
-
-    const name =
-      product.dataset.name;
-
-    const price =
-      Number(product.dataset.price);
-
-    const category =
-      product.dataset.category;
-
-    const quantityElement =
-      product.querySelector(".quantity-value");
-
-    const quantity =
-      Number(quantityElement.textContent);
-
+    const name = product.dataset.name;
+    const price = Number(product.dataset.price);
+    const category = product.dataset.category;
+    const quantityElement = product.querySelector(".quantity-value");
+    const quantity = Number(quantityElement.textContent);
 
     if (quantity > 0) {
+      selectedItems.push(quantity + " x " + name);
 
-      selectedItems.push(
-        quantity + " x " + name
-      );
+      // Cookie deal: 4 for $12
+      if (category === "cookie") {
+        cookieQuantity += quantity;
+      }
 
-
-      /*
-        MUFFINS + BROWNIES + BROOKIES
-
-        $7 each
-        Any 2 for $12
-      */
-
-      if (
+      // Muffin, brownie & brookie deal: 2 for $12
+      else if (
         category === "muffin" ||
         category === "brownie" ||
         category === "brookie"
       ) {
-
         dealQuantity += quantity;
-
-      } else {
-
-        regularTotal +=
-          price * quantity;
-
       }
 
+      // Everything else
+      else {
+        regularTotal += price * quantity;
+      }
     }
-
   });
 
-
-  /* MIX & MATCH DEAL */
-
-  const dealPairs =
-    Math.floor(dealQuantity / 2);
-
-  const remainingDealItems =
-    dealQuantity % 2;
-
+  // 2 for $12 deal
+  const dealPairs = Math.floor(dealQuantity / 2);
+  const remainingDealItems = dealQuantity % 2;
   const dealTotal =
-    (dealPairs * 12) +
-    (remainingDealItems * 7);
+    (dealPairs * 12) + (remainingDealItems * 7);
 
+  // Cookie deal: 4 for $12, otherwise $3.50 each
+  const cookieGroups = Math.floor(cookieQuantity / 4);
+  const remainingCookies = cookieQuantity % 4;
+  const cookieTotal =
+    (cookieGroups * 12) + (remainingCookies * 3.50);
 
-  /* FINAL TOTAL */
-
+  // Final total
   const finalTotal =
-    regularTotal + dealTotal;
+    regularTotal + dealTotal + cookieTotal;
 
+  estimatedTotalDisplay.textContent =
+    "$" + finalTotal.toFixed(2);
 
-  if (estimatedTotalDisplay) {
-
-    estimatedTotalDisplay.textContent =
-      "$" + finalTotal.toFixed(2);
-
+  if (selectedItems.length > 0) {
+    orderSummaryInput.value = selectedItems.join("\n");
+  } else {
+    orderSummaryInput.value = "No items selected";
   }
+
+  orderTotalInput.value =
+    "$" + finalTotal.toFixed(2);
+}
 
 
   /* ORDER SUMMARY */
