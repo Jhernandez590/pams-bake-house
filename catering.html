@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Catering | Pam's BakeHouse</title>
+
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+
+  <main class="catering-page">
+
+    <!-- BACK TO MAIN WEBSITE -->
+    <div class="catering-page-top">
+      <a href="index.html" class="catering-back">
+        ← BACK TO PAM'S BAKEHOUSE
+      </a>
+    </div>
+
+
+    <!-- CATERING HEADER -->
+    <section class="catering-page-hero">
+
+      <p class="catering-page-label">
+        PAM'S BAKEHOUSE
+      </p>
+
+      <h1>Catering</h1>
+
+      <div class="catering-page-line"></div>
+
+      <p class="catering-page-intro">
+        Planning something special? We'd love to bake for you.
+        Tell us a little about your event below and Pam will
+        contact you to discuss availability, selections,
+        quantities, and pricing.
+      </p>
+
+      <p class="catering-page-scripture">
+        Eat Bread & Rest.
+      </p>
+
+    </section>
+
+
+    <!-- CATERING FORM -->
+    <section class="catering-page-form-section">
+
+      <div class="catering-page-form-heading">
+
+        <p>CATERING REQUEST</p>
+
+        <h2>Tell Us About Your Event</h2>
+
+        <span>
+          Please fill out the information below.
+          Your request is not confirmed until you hear from Pam.
+        </span>
+
+      </div>
+
+
+      <form
+        class="catering-form"
+        action="https://formspree.io/f/maeqkyob"
+        method="POST"
+      >
+
+        <div class="catering-form-grid">
+
+
+          <!-- NAME -->
+          <div class="catering-field">
+            <label for="catering-name">
+              NAME *
+            </label>
+
+            <input
+              type="text"
+              id="catering-name"
+              name="name"
+              required
+            >
+          </div>
+
+
+          <!-- EMAIL -->
+          <div class="catering-field">
+            <label for="catering-email">
+              EMAIL *
+            </label>
+
+            <input
+              type="email"
+              id="catering-email"
+              name="email"
+              required
+            >
+          </div>
+
+
+          <!-- PHONE -->
+          <div class="catering-field">
+            <label for="catering-phone">
+              PHONE NUMBER *
+            </label>
+
+            <input
+              type="tel"
+              id="catering-phone"
+              name="phone"
+              required
+            >
+          </div>
+
+
+          <!-- EVENT DATE -->
+          <div class="catering-field">
+            <label for="catering-date">
+              EVENT DATE *
+            </label>
+
+            <input
+              type="date"
+              id="catering-date"
+              name="event_date"
+              required
+            >
+          </div>
+
+
+          <!-- EVENT TYPE -->
+          <div class="catering-field">
+            <label for="event-type">
+              EVENT TYPE *
+            </label>
+
+            <select
+              id="event-type"
+              name="event_type"
+              required
+            >
+              <option value="">
+                Select an event
+              </option>
+
+              <option>Birthday</option>
+              <option>Wedding</option>
+              <option>Baby Shower</option>
+              <option>Bridal Shower</option>
+              <option>Graduation</option>
+              <option>Church Event</option>
+              <option>Corporate Event</option>
+              <option>Family Gathering</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+
+          <!-- GUEST COUNT -->
+          <div class="catering-field">
+            <label for="guest-count">
+              ESTIMATED NUMBER OF GUESTS *
+            </label>
+
+            <input
+              type="number"
+              id="guest-count"
+              name="guest_count"
+              min="1"
+              required
+            >
+          </div>
+
+        </div>
+
+
+        <!-- BAKED GOODS -->
+        <div class="catering-field catering-field-full">
+
+          <label for="catering-items">
+            WHAT BAKED GOODS ARE YOU INTERESTED IN? *
+          </label>
+
+          <textarea
+            id="catering-items"
+            name="baked_goods"
+            rows="5"
+            placeholder="Tell us which baked goods you're interested in and approximately how many you may need."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <!-- SPECIAL DETAILS -->
+        <div class="catering-field catering-field-full">
+
+          <label for="catering-details">
+            EVENT DETAILS / SPECIAL REQUESTS
+          </label>
+
+          <textarea
+            id="catering-details"
+            name="event_details"
+            rows="6"
+            placeholder="Tell us anything else Pam should know about your event."
+          ></textarea>
+
+        </div>
+
+
+        <!-- ALLERGY -->
+        <div class="catering-field catering-field-full">
+
+          <label for="catering-allergies">
+            ALLERGY INFORMATION
+          </label>
+
+          <textarea
+            id="catering-allergies"
+            name="allergy_information"
+            rows="3"
+            placeholder="Please let Pam know about any food allergies or dietary concerns."
+          ></textarea>
+
+        </div>
+
+
+        <input
+          type="hidden"
+          name="form_type"
+          value="Catering Inquiry"
+        >
+
+
+        <button
+          type="submit"
+          class="catering-submit"
+        >
+          SEND CATERING INQUIRY
+        </button>
+
+      </form>
+
+
+      <!-- CONFIRMATION -->
+      <div
+        class="catering-confirmation"
+        id="catering-confirmation"
+      >
+
+        <div class="confirmation-decoration">
+          <span></span>
+          <span class="confirmation-heart">♡</span>
+          <span></span>
+        </div>
+
+        <p class="confirmation-label">
+          CATERING INQUIRY RECEIVED
+        </p>
+
+        <h3>Thank You!</h3>
+
+        <p>
+          We've received your catering inquiry.
+          Pam will review your event details and contact you
+          to discuss availability, selections, quantities,
+          and pricing.
+        </p>
+
+        <p class="confirmation-important">
+          Your catering request is not confirmed until
+          you hear from Pam.
+        </p>
+
+        <div class="confirmation-decoration confirmation-bottom">
+          <span></span>
+          <span class="confirmation-heart">♡</span>
+          <span></span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOTTOM -->
+    <section class="catering-page-bottom">
+
+      <p>PAM'S BAKEHOUSE</p>
+
+      <h2>Eat Bread & Rest.</h2>
+
+      <a href="index.html">
+        RETURN TO HOME
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js?v=6"></script>
+
+</body>
+</html>
