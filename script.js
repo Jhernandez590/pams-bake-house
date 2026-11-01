@@ -325,6 +325,93 @@ if (form) {
   );
 }
 
+/* =========================
+   CATERING FORM SUBMISSION
+========================= */
+
+const cateringForm =
+  document.querySelector(".catering-form");
+
+if (cateringForm) {
+
+  cateringForm.addEventListener(
+    "submit",
+    async function (event) {
+
+      // Stops Formspree from taking the customer
+      // away from Pam's website
+      event.preventDefault();
+
+      const submitButton =
+        cateringForm.querySelector(
+          ".catering-submit"
+        );
+
+      const confirmation =
+        document.getElementById(
+          "catering-confirmation"
+        );
+
+      submitButton.disabled = true;
+      submitButton.textContent = "SENDING...";
+
+      const formData =
+        new FormData(cateringForm);
+
+      try {
+
+        const response =
+          await fetch(
+            cateringForm.action,
+            {
+              method: "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json"
+              }
+            }
+          );
+
+        if (response.ok) {
+
+          cateringForm.reset();
+
+          if (confirmation) {
+
+            confirmation.classList.add("show");
+
+            confirmation.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
+          }
+
+        } else {
+
+          alert(
+            "Something went wrong while sending your catering inquiry. Please try again."
+          );
+
+        }
+
+      } catch (error) {
+
+        alert(
+          "Unable to send your catering inquiry right now. Please try again."
+        );
+
+      }
+
+      submitButton.disabled = false;
+
+      submitButton.textContent =
+        "SEND CATERING INQUIRY";
+
+    }
+  );
+
+}
 
 /* =========================
    INITIAL TOTAL
