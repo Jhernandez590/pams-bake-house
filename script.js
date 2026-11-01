@@ -1,25 +1,12 @@
-/* =========================
-   REGULAR ORDER FORM
-========================= */
-
 const form = document.getElementById("order-form");
 const formStatus = document.getElementById("form-status");
-
-const products =
-  document.querySelectorAll(".order-product");
-
-const estimatedTotalDisplay =
-  document.getElementById("estimated-total");
-
-const orderSummaryInput =
-  document.getElementById("order-summary");
-
-const orderTotalInput =
-  document.getElementById("order-total");
-
+const products = document.querySelectorAll(".order-product");
+const estimatedTotalDisplay = document.getElementById("estimated-total");
+const orderSummaryInput = document.getElementById("order-summary");
+const orderTotalInput = document.getElementById("order-total");
 
 /* =========================
-   UPDATE ORDER
+   UPDATE ORDER + TOTAL
 ========================= */
 
 function updateOrder() {
@@ -32,18 +19,24 @@ function updateOrder() {
     const name = product.dataset.name;
     const price = Number(product.dataset.price);
     const category = product.dataset.category;
-    const quantityElement = product.querySelector(".quantity-value");
-    const quantity = Number(quantityElement.textContent);
+
+    const quantityElement =
+      product.querySelector(".quantity-value");
+
+    const quantity =
+      Number(quantityElement.textContent);
 
     if (quantity > 0) {
       selectedItems.push(quantity + " x " + name);
 
-      // Cookie deal: 4 for $12
+      // COOKIE DEAL
+      // $3.50 each or 4 for $12
       if (category === "cookie") {
         cookieQuantity += quantity;
       }
 
-      // Muffin, brownie & brookie deal: 2 for $12
+      // MUFFIN / BROWNIE / BROOKIE DEAL
+      // $7 each or any 2 for $12
       else if (
         category === "muffin" ||
         category === "brownie" ||
@@ -52,36 +45,58 @@ function updateOrder() {
         dealQuantity += quantity;
       }
 
-      // Everything else
+      // EVERYTHING ELSE
       else {
         regularTotal += price * quantity;
       }
     }
   });
 
-  // 2 for $12 deal
-  const dealPairs = Math.floor(dealQuantity / 2);
-  const remainingDealItems = dealQuantity % 2;
+  /* 2 FOR $12 DEAL */
+
+  const dealPairs =
+    Math.floor(dealQuantity / 2);
+
+  const remainingDealItems =
+    dealQuantity % 2;
+
   const dealTotal =
-    (dealPairs * 12) + (remainingDealItems * 7);
+    (dealPairs * 12) +
+    (remainingDealItems * 7);
 
-  // Cookie deal: 4 for $12, otherwise $3.50 each
-  const cookieGroups = Math.floor(cookieQuantity / 4);
-  const remainingCookies = cookieQuantity % 4;
+
+  /* COOKIE 4 FOR $12 DEAL */
+
+  const cookieGroups =
+    Math.floor(cookieQuantity / 4);
+
+  const remainingCookies =
+    cookieQuantity % 4;
+
   const cookieTotal =
-    (cookieGroups * 12) + (remainingCookies * 3.50);
+    (cookieGroups * 12) +
+    (remainingCookies * 3.50);
 
-  // Final total
+
+  /* FINAL TOTAL */
+
   const finalTotal =
-    regularTotal + dealTotal + cookieTotal;
+    regularTotal +
+    dealTotal +
+    cookieTotal;
 
   estimatedTotalDisplay.textContent =
     "$" + finalTotal.toFixed(2);
 
+
+  /* ORDER SUMMARY */
+
   if (selectedItems.length > 0) {
-    orderSummaryInput.value = selectedItems.join("\n");
+    orderSummaryInput.value =
+      selectedItems.join("\n");
   } else {
-    orderSummaryInput.value = "No items selected";
+    orderSummaryInput.value =
+      "No items selected";
   }
 
   orderTotalInput.value =
@@ -89,41 +104,11 @@ function updateOrder() {
 }
 
 
-  /* ORDER SUMMARY */
-
-  if (orderSummaryInput) {
-
-    if (selectedItems.length > 0) {
-
-      orderSummaryInput.value =
-        selectedItems.join("\n");
-
-    } else {
-
-      orderSummaryInput.value =
-        "No items selected";
-
-    }
-
-  }
-
-
-  if (orderTotalInput) {
-
-    orderTotalInput.value =
-      "$" + finalTotal.toFixed(2);
-
-  }
-
-}
-
-
 /* =========================
-   QUANTITY BUTTONS
+   PLUS / MINUS BUTTONS
 ========================= */
 
 products.forEach(function (product) {
-
   const minusButton =
     product.querySelector(".minus");
 
@@ -134,91 +119,66 @@ products.forEach(function (product) {
     product.querySelector(".quantity-value");
 
 
-  if (
-    !minusButton ||
-    !plusButton ||
-    !quantityElement
-  ) {
-    return;
-  }
+  if (plusButton) {
+    plusButton.addEventListener(
+      "click",
+      function () {
+        let quantity =
+          Number(quantityElement.textContent);
 
-
-  plusButton.addEventListener(
-    "click",
-    function () {
-
-      let quantity =
-        Number(quantityElement.textContent);
-
-      quantity++;
-
-      quantityElement.textContent =
-        quantity;
-
-      updateOrder();
-
-    }
-  );
-
-
-  minusButton.addEventListener(
-    "click",
-    function () {
-
-      let quantity =
-        Number(quantityElement.textContent);
-
-
-      if (quantity > 0) {
-
-        quantity--;
+        quantity++;
 
         quantityElement.textContent =
           quantity;
 
         updateOrder();
-
       }
+    );
+  }
 
-    }
-  );
 
+  if (minusButton) {
+    minusButton.addEventListener(
+      "click",
+      function () {
+        let quantity =
+          Number(quantityElement.textContent);
+
+        if (quantity > 0) {
+          quantity--;
+        }
+
+        quantityElement.textContent =
+          quantity;
+
+        updateOrder();
+      }
+    );
+  }
 });
 
 
 /* =========================
-   CHECK ORDER ITEMS
+   CHECK FOR ITEMS
 ========================= */
 
 function orderHasItems() {
-
   let hasItems = false;
 
-
   products.forEach(function (product) {
-
-    const quantityElement =
-      product.querySelector(".quantity-value");
-
-
-    if (!quantityElement) {
-      return;
-    }
-
-
     const quantity =
-      Number(quantityElement.textContent);
-
+      Number(
+        product.querySelector(
+          ".quantity-value"
+        ).textContent
+      );
 
     if (quantity > 0) {
       hasItems = true;
     }
-
   });
 
-
   return hasItems;
-
 }
 
 
@@ -227,34 +187,24 @@ function orderHasItems() {
 ========================= */
 
 function resetOrderBuilder() {
-
   products.forEach(function (product) {
-
     const quantityElement =
-      product.querySelector(".quantity-value");
+      product.querySelector(
+        ".quantity-value"
+      );
 
-
-    if (quantityElement) {
-
-      quantityElement.textContent =
-        "0";
-
-    }
-
+    quantityElement.textContent = "0";
   });
 
-
   updateOrder();
-
 }
 
 
 /* =========================
-   REGULAR ORDER SUBMISSION
+   FORM SUBMISSION
 ========================= */
 
 if (form) {
-
   form.addEventListener(
     "submit",
     async function (event) {
@@ -262,17 +212,13 @@ if (form) {
       event.preventDefault();
 
 
+      /* REQUIRE AT LEAST ONE ITEM */
+
       if (!orderHasItems()) {
-
-        if (formStatus) {
-
-          formStatus.textContent =
-            "Please choose at least one baked good before sending your order.";
-
-        }
+        formStatus.textContent =
+          "Please choose at least one baked good before sending your order.";
 
         return;
-
       }
 
 
@@ -280,30 +226,18 @@ if (form) {
 
 
       const submitButton =
-        form.querySelector(".order-button");
-
-      const confirmation =
-        document.getElementById(
-          "order-confirmation"
+        form.querySelector(
+          ".order-button"
         );
 
 
-      if (submitButton) {
+      submitButton.disabled = true;
 
-        submitButton.disabled = true;
+      submitButton.textContent =
+        "SENDING...";
 
-        submitButton.textContent =
-          "SENDING...";
-
-      }
-
-
-      if (formStatus) {
-
-        formStatus.textContent =
-          "Sending your order request...";
-
-      }
+      formStatus.textContent =
+        "Sending your order request...";
 
 
       const formData =
@@ -316,28 +250,32 @@ if (form) {
           await fetch(
             form.action,
             {
-              method: "POST",
+              method: form.method,
               body: formData,
               headers: {
-                Accept: "application/json"
+                Accept:
+                  "application/json"
               }
             }
           );
 
 
+        /* SUCCESS */
+
         if (response.ok) {
 
-          if (formStatus) {
-            formStatus.textContent = "";
-          }
+          const confirmation =
+            document.getElementById(
+              "order-confirmation"
+            );
+
+          formStatus.textContent = "";
 
 
           if (confirmation) {
-
             confirmation.classList.add(
               "show"
             );
-
           }
 
 
@@ -347,173 +285,49 @@ if (form) {
 
 
           if (confirmation) {
-
             confirmation.scrollIntoView({
               behavior: "smooth",
               block: "center"
             });
-
-          }
-
-
-        } else {
-
-          if (formStatus) {
-
-            formStatus.textContent =
-              "Something went wrong while sending your order. Please try again.";
-
           }
 
         }
 
 
-      } catch (error) {
+        /* FORMSPREE ERROR */
 
-        if (formStatus) {
+        else {
 
           formStatus.textContent =
-            "Unable to send your order request right now. Please try again.";
+            "Something went wrong while sending your order. Please try again.";
 
         }
 
       }
 
 
-      if (submitButton) {
+      /* CONNECTION ERROR */
 
-        submitButton.disabled = false;
+      catch (error) {
 
-        submitButton.textContent =
-          "SEND ORDER REQUEST";
+        formStatus.textContent =
+          "Unable to send your order request right now. Please try again.";
 
       }
 
+
+      submitButton.disabled = false;
+
+      submitButton.textContent =
+        "SEND ORDER REQUEST";
+
     }
   );
-
 }
 
 
 /* =========================
-   CATERING FORM
-========================= */
-
-const cateringForm =
-  document.querySelector(".catering-form");
-
-const cateringConfirmation =
-  document.getElementById(
-    "catering-confirmation"
-  );
-
-
-if (cateringForm) {
-
-  cateringForm.addEventListener(
-    "submit",
-    async function (event) {
-
-      /*
-        STOP BROWSER FROM GOING
-        TO FORMSPREE'S WEBSITE
-      */
-
-      event.preventDefault();
-
-
-      const cateringSubmitButton =
-        cateringForm.querySelector(
-          ".catering-submit"
-        );
-
-
-      if (cateringSubmitButton) {
-
-        cateringSubmitButton.disabled =
-          true;
-
-        cateringSubmitButton.textContent =
-          "SENDING...";
-
-      }
-
-
-      const cateringFormData =
-        new FormData(cateringForm);
-
-
-      try {
-
-        const response =
-          await fetch(
-            cateringForm.action,
-            {
-              method: "POST",
-              body: cateringFormData,
-              headers: {
-                Accept: "application/json"
-              }
-            }
-          );
-
-
-        if (response.ok) {
-
-          cateringForm.reset();
-
-
-          if (cateringConfirmation) {
-
-            cateringConfirmation.classList.add(
-              "show"
-            );
-
-
-            cateringConfirmation.scrollIntoView({
-              behavior: "smooth",
-              block: "center"
-            });
-
-          }
-
-
-        } else {
-
-          alert(
-            "Something went wrong while sending your catering inquiry. Please try again."
-          );
-
-        }
-
-
-      } catch (error) {
-
-        alert(
-          "Unable to send your catering inquiry right now. Please try again."
-        );
-
-      }
-
-
-      if (cateringSubmitButton) {
-
-        cateringSubmitButton.disabled =
-          false;
-
-        cateringSubmitButton.textContent =
-          "SEND CATERING INQUIRY";
-
-      }
-
-    }
-  );
-
-}
-
-
-/* =========================
-   INITIALIZE
+   INITIAL TOTAL
 ========================= */
 
 updateOrder();
